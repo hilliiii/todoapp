@@ -48,6 +48,9 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+  # 追加
+  gem 'haml-rails'
+  gem 'html2haml'
 end
 
 group :test do
@@ -59,3 +62,4 @@ end
 # 追加
 gem "devise", "~> 4.9"
 gem "sassc-rails"
+gem 'hamlit'
