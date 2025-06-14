@@ -51,6 +51,7 @@ group :development do
   # 追加
   gem 'haml-rails'
   gem 'html2haml'
+  gem 'annotate'
 end
 
 group :test do
