@@ -1,0 +1,9 @@
+@import "variables";
+
+header {
+  display: flex;
+  justify-content: space-between;
+  background-color: $background-color;
+  border-bottom: 1px solid #8e8888;
+  padding: 0 20px;
+}

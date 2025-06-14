@@ -55,3 +55,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+# 追加
+gem "devise", "~> 4.9"
+gem "sassc-rails"
