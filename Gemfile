@@ -46,6 +46,7 @@ group :development, :test do
 
   # 追加
   gem 'rubocop-rails'
+  gem 'pry-byebug'
 end
 
 group :development do
@@ -55,6 +56,8 @@ group :development do
   gem 'haml-rails'
   gem 'annotate'
   gem 'html2haml'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :test do
@@ -65,5 +68,6 @@ end
 
 # 追加
 gem 'devise', '~> 4.9'
-gem 'hamlit'gem 'sassc-rails'
-
+gem 'hamlit'
+gem 'sassc-rails'
+gem 'faker'
