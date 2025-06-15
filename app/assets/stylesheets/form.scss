@@ -1,0 +1,21 @@
+@import "variables";
+
+input,
+select {
+  &.text {
+    width: 100%;
+    margin-top: 4px;
+    margin-bottom: 32px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: none;
+    background-color: $textbox-bgc;
+  }
+
+  &.button {
+    position: fixed;
+    left: $padding-lr;
+    right: $padding-lr;
+    bottom: 24px;
+  }
+}
