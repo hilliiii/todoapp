@@ -21,4 +21,19 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  has_many :boards, dependent: :destroy
+  has_one_attached :avatar
+
+  def has_written?(board)
+    boards.exists?(id: board.id)
+  end
+
+  def avatar_image
+    if avatar&.attached?
+      avatar
+    else
+      'default-avatar.png'
+    end
+  end
 end
