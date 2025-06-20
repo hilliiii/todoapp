@@ -1,0 +1,9 @@
+.container
+  %h2.title Edit Avatar
+  %ul
+    - @user.errors.full_messages.each do |message|
+      %li= message
+  = form_with(model: @user, url: avatar_path, method: 'put', local: true) do |f|
+    %div
+      = f.file_field :avatar
+    = f.submit 'Submit', class: 'button'

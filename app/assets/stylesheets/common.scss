@@ -1,5 +1,65 @@
 @import "variables";
 
+html {
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  height: 100%;
+  font-family: "Avenir", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+}
+
+.container {
+  padding: 80px $padding-lr 24px $padding-lr;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.button {
+  box-sizing: border-box;
+  background-color: $button-bgc;
+  padding: 8px 24px;
+  border-radius: 8px;
+  border: none;
+  color: $button-color;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: "Avenir", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.add-button {
+  border: 1px dashed $border-color;
+  border-radius: 8px;
+  padding: 52px 24px;
+  text-align: center;
+  background-color: $background-color;
+  width: 100%;
+  font-size: 16px;
+}
+
+.title {
+  margin-bottom: 20px;
+}
+
 .dropdown {
   position: relative;
   display: inline-block;
@@ -11,7 +71,8 @@
   right: 0;
   position: absolute;
   background-color: white;
-  min-width: 160px;
+  min-width: 120px;
+  border-radius: 8px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 

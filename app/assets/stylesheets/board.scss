@@ -1,0 +1,36 @@
+@import "variables";
+
+.card {
+  background-color: $box-bgc;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  padding: 20px 10px;
+
+  .card_detail {
+    display: flex;
+    justify-content: space-between;
+
+    img {
+      vertical-align: middle;
+      width: 24px;
+      margin-right: 12px;
+    }
+  }
+
+  .card_title {
+    font-size: 16px;
+  }
+
+  .card_description {
+    color: $font-color-gray;
+    font-size: 14px;
+  }
+
+  .board_avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+    margin-top: 12px;
+    vertical-align: middle;
+  }
+}

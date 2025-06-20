@@ -10,6 +10,7 @@ $avatar-size: 40px;
   border-bottom: 1px solid $border-color;
   padding: 8px 20px;
   position: fixed;
+  z-index: 99;
   width: 100%;
 
   &_signinBtn {
@@ -24,5 +25,6 @@ $avatar-size: 40px;
     width: $avatar-size;
     height: $avatar-size;
     border-radius: 100%;
+    vertical-align: middle;
   }
 }
