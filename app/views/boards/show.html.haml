@@ -1,0 +1,20 @@
+.container
+  %h2.title= @board.name
+  - @tasks.each do |task|
+    = link_to board_task_path(board_id: @board.id, id:task.id) do
+      .card
+        .card_detail
+          %p.card_title= task.title
+          - if user_signed_in? && current_user.has_created_task?(task)
+            .dropdown
+              =image_tag 'actions.svg'
+              .dropdown-content
+                = link_to 'Edit', edit_board_task_path(board_id: @board.id, id: task.id)
+                = link_to 'Delete', board_task_path(board_id: @board.id, id: task.id), data: { turbo_method: 'delete', turbo_confirm: 'Are you sure you want me to delete it?' }
+        %p.card_description= task.content
+        - if task.assignee_id.present?
+          = image_tag task.assignee.avatar_image, class: 'avatar'
+        - else
+          = image_tag 'default-avatar.png', class: 'avatar'
+  = link_to new_board_task_path(board_id: @board.id) do
+    %button.add-button= '+ Add new task'

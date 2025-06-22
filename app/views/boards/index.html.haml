@@ -1,17 +1,18 @@
 .container
   %h2.title All Boards
   - @boards.each do |board|
-    .card
-      .card_detail
-        %p.card_title= board.name
-        - if user_signed_in? && current_user.has_written?(board)
-          .dropdown
-            =image_tag 'actions.svg'
-            .dropdown-content
-              = link_to 'Edit', edit_board_path(id: board.id)
-              = link_to 'Delete', board_path(id: board.id), data: { turbo_method: 'delete', turbo_confirm: 'Are you sure you want me to delete it?' }
-      %p.card_description= board.description
-      = image_tag board.user.avatar_image, class: 'board_avatar'
+    =link_to board_path(id: board.id) do
+      .card
+        .card_detail
+          %p.card_title= board.name
+          - if user_signed_in? && current_user.has_written_board?(board)
+            .dropdown
+              =image_tag 'actions.svg'
+              .dropdown-content
+                = link_to 'Edit', edit_board_path(id: board.id)
+                = link_to 'Delete', board_path(id: board.id), data: { turbo_method: 'delete', turbo_confirm: 'Are you sure you want me to delete it?' }
+        %p.card_description= board.description
+        = image_tag board.user.avatar_image, class: 'avatar'
   = link_to new_board_path do
     %button.add-button= '+ Add new board'
 

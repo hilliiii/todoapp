@@ -5,6 +5,11 @@ class BoardsController < ApplicationController
     @boards = Board.all
   end
 
+  def show
+    @board = Board.find(params[:id])
+    @tasks = @board.tasks
+  end
+
   def new
     if user_signed_in?
       @board = current_user.boards.build

@@ -23,10 +23,16 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :boards, dependent: :destroy
+  has_many :created_tasks, class_name: 'Task', foreign_key: 'creator_id'
+  has_many :assigned_tasks, class_name: 'Task', foreign_key: 'assignee_id'
   has_one_attached :avatar
 
-  def has_written?(board)
+  def has_written_board?(board)
     boards.exists?(id: board.id)
+  end
+
+  def has_created_task?(task)
+    created_tasks.exists?(id: task.id)
   end
 
   def avatar_image
