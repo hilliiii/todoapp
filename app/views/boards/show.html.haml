@@ -12,6 +12,7 @@
                 = link_to 'Edit', edit_board_task_path(board_id: @board.id, id: task.id)
                 = link_to 'Delete', board_task_path(board_id: @board.id, id: task.id), data: { turbo_method: 'delete', turbo_confirm: 'Are you sure you want me to delete it?' }
         %p.card_description= task.content
+        %p.card_description= "Deadline: #{task.deadline}"
         - if task.assignee_id.present?
           = image_tag task.assignee.avatar_image, class: 'avatar'
         - else

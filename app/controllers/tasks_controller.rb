@@ -10,7 +10,6 @@ class TasksController < ApplicationController
     if user_signed_in?
       board = Board.find(params[:board_id])
       @task = board.tasks.build
-      @task.user_id = current_user.id
     else
       redirect_to new_user_session_path
     end
@@ -19,7 +18,7 @@ class TasksController < ApplicationController
   def create
     board = Board.find(params[:board_id])
     @task = board.tasks.build(task_params)
-    # @task.user_id = current_user.id
+    @task.creator = current_user
     if @task.save
       redirect_to board_path(id: board.id), notice: 'Task creation completed!'
     else
@@ -28,9 +27,18 @@ class TasksController < ApplicationController
   end
 
   def edit
+    @task = current_user.created_tasks.find(params[:id])
   end
 
   def update
+    board = Board.find(params[:board_id])
+    @task = current_user.created_tasks.find(params[:id])
+    if @task.update(task_params)
+      redirect_to board_path(id: board.id), notice: 'Task updated.'
+    else
+      flash.now[:error] = "Task couldn't be updated."
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
@@ -39,6 +47,6 @@ class TasksController < ApplicationController
 
   private
   def task_params
-    params.require(:task).permit(:title, :content, :deadline)
+    params.require(:task).permit(:title, :content, :deadline, :assignee_id)
   end
 end
