@@ -17,3 +17,12 @@
       %p.card_description= "Assingee: #{ @task.assignee.email.split('@').first }"
     - else
       %p.card_description= "Assingee: Undesided"
+  .comment
+    %h2.comment_title Comment
+    .comment_detail
+      - @comments.each do |comment|
+        .each_comment
+          = image_tag comment.user.avatar_image, class: 'avatar'
+          %p= comment.content
+    = link_to new_board_task_comment_path(board_id: @task.board_id, task_id: @task.id) do
+      %button.add-button + Add new comment

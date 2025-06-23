@@ -30,3 +30,39 @@
   padding: 20px;
   margin-bottom: 20px;
 }
+
+.comment {
+  .comment_title {
+    font-weight: normal;
+    margin-bottom: 20px;
+  }
+
+  .comment_detail {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .each_comment {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+
+      img {
+        vertical-align: middle;
+        width: 36px;
+        height: 36px;
+        margin-right: 12px;
+        border-radius: 100%;
+      }
+
+      p {
+        width: 85%;
+        word-break: break-word;
+      }
+    }
+  }
+  .add-button {
+    padding: 16px 0;
+  }
+}
