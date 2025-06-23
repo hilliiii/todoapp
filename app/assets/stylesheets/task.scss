@@ -1,0 +1,32 @@
+@import "variables";
+
+.title_group {
+  display: flex;
+  justify-content: space-between;
+  word-wrap: break-word;
+
+  img {
+    vertical-align: middle;
+    width: 24px;
+    margin-right: 12px;
+  }
+}
+
+.eye_catch {
+  margin-bottom: 20px;
+  img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+}
+
+.task_content {
+  background-color: $box-bgc;
+  min-height: 40px;
+  word-wrap: break-word;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}

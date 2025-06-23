@@ -6,6 +6,17 @@
   border-radius: 8px;
   padding: 20px 10px;
 
+  .eye_catch {
+    margin: 0 4px 4px 4px;
+
+    img {
+      width: 100%;
+      max-height: 160px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+  }
+
   .card_detail {
     display: flex;
     justify-content: space-between;
@@ -19,14 +30,16 @@
 
   .card_title {
     font-size: 16px;
+    word-wrap: break-word;
   }
 
   .card_description {
     color: $font-color-gray;
+    word-wrap: break-word;
     font-size: 14px;
   }
 
-  .board_avatar {
+  .avatar {
     width: 32px;
     height: 32px;
     border-radius: 100%;

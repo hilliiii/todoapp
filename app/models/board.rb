@@ -19,4 +19,5 @@ class Board < ApplicationRecord
   validates :name, uniqueness: true
 
   belongs_to :user
+  has_many :tasks, dependent: :destroy
 end

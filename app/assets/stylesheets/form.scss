@@ -19,9 +19,11 @@ textarea {
   }
 
   &.button {
-    position: fixed;
     left: $padding-lr;
     right: $padding-lr;
-    bottom: 24px;
+  }
+
+  &.file {
+    margin-bottom: 20px;
   }
 }

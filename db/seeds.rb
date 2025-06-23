@@ -12,15 +12,30 @@ john = User.create!(email: 'john@sample.com', password: 'password')
 emily = User.create!(email: 'emily@sample.com', password: 'password')
 
 1.times do
-  john.boards.create!(
-    name: Faker::Lorem.sentence(word_count: 5),
+  john_board = john.boards.create!(
+    name: Faker::Lorem.sentence(word_count: 1),
     description: Faker::Lorem.sentence(word_count: 20)
+  )
+
+  john_board.tasks.create!(
+    title: Faker::Lorem.sentence(word_count: 2),
+    content: Faker::Lorem.sentence(word_count: 10),
+    creator: john,
+    deadline: Date.today + 2.weeks
   )
 end
 
 1.times do
-  emily.boards.create!(
+  emily_board = emily.boards.create!(
     name: Faker::Lorem.sentence(word_count: 5),
     description: Faker::Lorem.sentence(word_count: 20)
   )
+
+  emily_board.tasks.create!(
+    title: Faker::Lorem.sentence(word_count: 2),
+    content: Faker::Lorem.sentence(word_count: 10),
+    creator: emily,
+    deadline: Date.today + 2.weeks
+  )
+
 end

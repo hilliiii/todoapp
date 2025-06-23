@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root to: 'boards#index'
 
-  resources :boards
+  resources :boards do
+    resources :tasks, only:[:new, :create, :edit, :update, :destroy, :show]
+  end
   resource :avatar, only:[:edit, :update], controller: 'avatars'
 end
