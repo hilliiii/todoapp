@@ -26,10 +26,15 @@
 #
 class Task < ApplicationRecord
 
+  has_one_attached :eye_catch
+
   validates :title, presence: true
 
   belongs_to :board
   belongs_to :creator, class_name: 'User'
   belongs_to :assignee, class_name: 'User', optional: true
 
+  def get_board_id
+    board_id
+  end
 end

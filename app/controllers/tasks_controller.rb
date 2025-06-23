@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def show
     board = Board.find(params[:board_id])
@@ -42,11 +42,13 @@ class TasksController < ApplicationController
   end
 
   def destroy
-
+    task = current_user.created_tasks.find(params[:id])
+    task.destroy!
+    redirect_to board_path(params[:board_id]), status: :see_other, notice: 'Task removed.'
   end
 
   private
   def task_params
-    params.require(:task).permit(:title, :content, :deadline, :assignee_id)
+    params.require(:task).permit(:title, :content, :deadline, :assignee_id, :eye_catch)
   end
 end

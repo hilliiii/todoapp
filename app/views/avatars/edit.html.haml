@@ -5,5 +5,5 @@
       %li= message
   = form_with(model: @user, url: avatar_path, method: 'put', local: true) do |f|
     %div
-      = f.file_field :avatar
+      = f.file_field :avatar, class: 'file'
     = f.submit 'Submit', class: 'button'

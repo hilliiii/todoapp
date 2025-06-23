@@ -4,11 +4,15 @@
     - task.errors.full_messages.each do |message|
       %li= message
   - if task.persisted?
-    - form_args = { model: task, url: board_task_path, method: 'put', local: true }
+    - form_args = { model: task, url: board_task_path(board_id: task.get_board_id, id: task), method: 'put', local: true }
   - else
-    - form_args = { model: task, url: board_tasks_path, local: true }
-
+    - form_args = { model: task, url: board_tasks_path(board_id: task.get_board_id, id: task), local: true }
+  -# - binding.pry
   = form_with(**form_args) do |f|
+    %div
+      = f.label :eye_catch, 'Eye Catch'
+    %div
+      = f.file_field :eye_catch, class: 'file'
     %div
       = f.label :title, 'Title'
     %div
@@ -17,6 +21,10 @@
       = f.label :content, 'Content'
     %div
       = f.text_area :content, class: 'text textarea'
+    %div
+      = f.label :assignee_id, 'Assignee'
+    %div
+      = f.select :assignee_id, User.all.map{ |u| [ u.email.split('@').first, u.id ] }, { include_blank: true}, {class: 'text'}
     %div
       = f.label :deadline, 'Deadline'
     %div

@@ -1,7 +1,7 @@
 .container
   %h2.title All Boards
   - @boards.each do |board|
-    =link_to board_path(id: board.id) do
+    = link_to board_path(id: board.id) do
       .card
         .card_detail
           %p.card_title= board.name
