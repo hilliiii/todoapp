@@ -39,11 +39,37 @@
     font-size: 14px;
   }
 
-  .avatar {
-    width: 32px;
-    height: 32px;
-    border-radius: 100%;
+  .card_option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-top: 12px;
-    vertical-align: middle;
+
+    .comment_count {
+      display: flex;
+
+      p {
+        color: $font-color-gray;
+        font-size: 12px;
+      }
+
+      img {
+        width: 20px;
+        height: 20px;
+        margin-left: 8px;
+      }
+    }
+    .avatar {
+      box-sizing: border-box;
+      width: 32px;
+      height: 32px;
+      border-radius: 100%;
+      margin-left: -16px;
+      vertical-align: middle;
+    }
+
+    .avatar:first-of-type {
+      margin-left: 0;
+    }
   }
 }

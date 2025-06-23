@@ -10,7 +10,13 @@
           %p.card_title= task.title
         %p.card_description= task.content
         %p.card_description= "Deadline: #{task.deadline}"
-        - if task.assignee_id.present?
-          = image_tag task.assignee.avatar_image, class: 'avatar'
+        .card_option
+          .avatar_group
+            - images = task.related_users_avatars
+            - images.each do |image|
+              = image_tag image, class: 'avatar'
+          .comment_count
+            %p.comment_total= task.total_on_task
+            = image_tag 'comment-icon.png'
   = link_to new_board_task_path(board_id: @board.id) do
-    %button.add-button= '+ Add new task'
+    %button.add-button + Add new task

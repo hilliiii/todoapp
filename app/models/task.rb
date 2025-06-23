@@ -33,8 +33,18 @@ class Task < ApplicationRecord
   belongs_to :board
   belongs_to :creator, class_name: 'User'
   belongs_to :assignee, class_name: 'User', optional: true
+  has_many :comments, dependent: :destroy
 
   def get_board_id
     board_id
+  end
+
+  def related_users_avatars
+    users = [creator] + comments.map(&:user)
+    users.uniq.map{ |user| user.avatar_image }
+  end
+
+  def total_on_task
+    comments.count
   end
 end
