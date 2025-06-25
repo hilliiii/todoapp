@@ -47,6 +47,8 @@ group :development, :test do
   # 追加
   gem 'rubocop-rails'
   gem 'pry-byebug'
+  gem 'dotenv-rails'
+
 end
 
 group :development do
@@ -71,3 +73,4 @@ gem 'devise', '~> 4.9'
 gem 'hamlit'
 gem 'sassc-rails'
 gem 'faker'
+gem 'aws-sdk-s3', require: false
