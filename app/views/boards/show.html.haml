@@ -14,7 +14,7 @@
           .avatar_group
             - images = task.related_users_avatars
             - images.each do |image|
-              = image_tag image, class: 'avatar'
+              = image_tag image, class: 'avatar avatar-group'
           .comment_count
             %p.comment_total= task.total_on_task
             = image_tag 'comment-icon.png'
