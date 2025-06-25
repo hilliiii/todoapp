@@ -19,7 +19,6 @@ default: &default
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
-
 development:
   <<: *default
   database: hillii_todoapp_development
@@ -79,7 +78,4 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  <<: *default
-  database: hillii_todoapp_production
-  username: hillii_todoapp
-  password: <%= ENV["HILLII_TODOAPP_DATABASE_PASSWORD"] %>
+  url: <%= ENV["DATABASE_URL"] %>
