@@ -147,7 +147,14 @@ GEM
     erubis (2.7.0)
     faker (3.5.1)
       i18n (>= 1.8.11, < 2)
+    ffi (1.17.2-aarch64-linux-gnu)
+    ffi (1.17.2-aarch64-linux-musl)
+    ffi (1.17.2-arm-linux-gnu)
+    ffi (1.17.2-arm-linux-musl)
     ffi (1.17.2-arm64-darwin)
+    ffi (1.17.2-x86_64-darwin)
+    ffi (1.17.2-x86_64-linux-gnu)
+    ffi (1.17.2-x86_64-linux-musl)
     globalid (1.2.1)
       activesupport (>= 6.1)
     haml (6.3.0)
@@ -247,7 +254,7 @@ GEM
       date
       stringio
     public_suffix (6.0.2)
-    puma (6.6.0)
+    puma (7.0.2)
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (3.1.16)
